@@ -1,0 +1,62 @@
+
+Vérifie si le fichier /home/jordan/bonjour existe : [ -e /home/jordan/bonjour ]
+La commande nous retourne la valeur 0 (True) si le fichier existe
+La commande nous retourne la valeur 1 (False) si le fichier n'existe pas
+
+Exemple:
+#!/bin/bash
+PRENOM='Jon'
+[ -z $PRENOM ]
+echo $?
+./script.sh
+1
+Le –z nous renvoie 0 si la chaîne de caractère est vide et 1 si elle ne l'est pas.
+Le $? permet de demander d'afficher le retour de la dernière commande lancée
+
+
+#!/bin/bash
+PRENOM='Jon'
+[ -n $PRENOM ]
+echo $?
+./script.sh
+0
+Le –n nous renvoie 1 si la chaîne de caractère est vide et 0 si elle ne l'est pas.
+
+Comparer deux chaînes entre elles :
+#!/bin/bash
+PRENOM='Jordan'
+NOM='ASSOULINE'
+[ $PRENOM = $NOM ]
+echo $?
+./script.sh
+1
+En effet, on peut comparer les chaînes en utilisant le signe =.
+Le script nous renvoie 0 si les deux chaînes sont identiques et 1 si elles ne le sont pas.
+
+#!/bin/bash
+PRENOM='Jordan'
+NOM='ASSOULINE'
+[ $PRENOM != $NOM ]
+echo $?
+./script.sh
+0
+On peut vérifier si deux chaînes sont différentes grâce au " != "
+Le script nous renvoie 1 si les deux chaînes sont identiques et 0 si elles sont différentes.
+
+Parmi les opérateur principaux nous avons :
+-e : 0 (True) si le fichier existe
+-d : 0 (True) s'il s'agit d'un dossier
+-r : 0 (True) si le fichier est disponible en lecture pour l'utilisateur
+-s : 0 (True) si le fichier existe et n'est pas vide
+-w : 0 (True) si le fichier est disponible en écriture pour l'utilisateur
+-x : 0 (True) si le fichier est disponible en exécution pour l'utilisateur
+
+Les tests sur les chiffres:
+De la même manière que les chaînes de caractères, il est tout à fait possible de comparer deux nombres entre eux.
+chiffre1 –eq chiffre2 : 0 si chiffre1 est égal à chiffre2
+chiffre1 –ne chiffre2 : 0 si chiffre1 est différent de chiffre2
+chiffre1 –lt chiffre2 : 0 si chiffre1 est plus petit que chiffre2
+chiffre1 –le chiffre2 : 0 si chiffre1 est plus petit ou égal que chiffre2
+chiffre1 –gt chiffre2 : 0 si chiffre1 est plus grand que chiffre2
+chiffre1 –ge chiffre2 : 0 si chiffre1 est plus grand ou égal que chiffre2 
+
