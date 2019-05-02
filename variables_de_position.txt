@@ -1,0 +1,37 @@
+Les variables de position stockent le contenu des
+différents éléments de la ligne de commande utilisée pour lancer le script.
+Il en existe 10 : $0 jusqu'à $9
+Le script lui-même est stocké dans la variable $0
+Le premier paramètre est stocké dans la variable $1
+Le second paramètre est stocké dans la variable $2
+
+En lançant le script :
+./script.sh argument1 argument2
+Dans l'exemple ci-dessus où on lance le script en lui
+passant des arguments on va avoir les valeurs suivantes :
+$0 : script.sh
+$1 : argument1
+$2 : argument2
+
+Il est possible d'accéder à toutes les variables de position à partir du $1 grâce au caractère "$@"
+#!/bin/bash
+echo "Voici les paramètres utilisés : $@"
+./script.sh parametre1 parametre2
+Voici les paramètres utilisés : parametre1 parametre2
+
+Il existe différents caractères intéressants à utiliser, concernant les variables de positionnement.
+$# : récupère le nombre de paramètres (à partir du $1)
+$* : récupère la liste des paramètres
+===================================================================
+Pour accéder aux valeurs supérieures à 9, on peut utiliser
+la commande "shift" qui va décaler les valeurs des paramètres
+#!/bin/bash
+echo "Affichage de tous les parametres : $@"
+echo "Le parametre1 a pour valeur $1"
+shift
+echo "Le nouveau parametre1 a pour valeur $1"
+
+./script.sh parametre1 parametre2
+Affichage de tous les paramètres : parametre1 parametre2
+Le parametre1 a pour valeur : parametre1
+Le nouveau parametre1 a pour valeur : parametre2
