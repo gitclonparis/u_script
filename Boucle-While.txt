@@ -1,0 +1,14 @@
+while [ la-condition-est-vraie ]
+do
+command
+command2
+done
+
+#!/bin/bash
+while [ -z $PRENOM ]
+do
+read –p "Quel est votre prenom ?" PRENOM
+Done
+Echo "Votre prenom est $PRENOM"
+
+
