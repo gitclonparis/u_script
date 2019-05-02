@@ -1,0 +1,13 @@
+#!/bin/bash
+for CHIFFRE in 10 11 12 13
+do
+echo "Chiffre : $CHIFFRE"
+done
+
+#!/bin/bash
+CHIFFRES="10 11 12 13"
+for CHIFFRE in $CHIFFRES
+do
+echo "Chiffre : $CHIFFRE"
+done
+
