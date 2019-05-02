@@ -1,0 +1,15 @@
+La commande read permet d'accepter les données du
+STDIN (entrée standard), c’est-à-dire va permettre à
+l'utilisateur d'entrer des données.
+#!/bin/bash
+echo "Quel est votre prenom ?"
+read PRENOM
+
+Cette commande va nous permettre de stocker dans la
+variable "PRENOM" le contenu entré par l'utilisateur.
+
+Si on veut afficher du texte pour préciser à l'utilisateur
+quel genre de données nous souhaitons qu'il entre, on
+peut également utiliser l'option "-p"
+#!/bin/bash
+read –p "Quel est votre prenom" PRENOM
