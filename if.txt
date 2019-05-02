@@ -1,0 +1,42 @@
+#!/bin/bash
+touch /home/jon/bonjour.sh
+if [ -e /home/jon/bonjour.sh ]
+then
+echo "Le fichier bonjour.sh a bien été créé"
+fi
+
+#!/bin/bash
+if [ -e /home/jon/bonjour.sh ]
+then
+echo "Le fichier bonjour.sh a bien été créé"
+else
+echo "Le fichier bonjour.sh n'a pas été créé"
+fi
+
+#!/bin/bash
+CHIFFRE1='16'
+CHIFFRE2='17'
+if [ $CHIFFRE1 –lt $CHIFFRE2 ]
+then
+echo "$CHIFFRE1 est plus petit que $CHIFFRE2"
+elif [ $CHIFFRE1 –gt $CHIFFRE2 ]
+then
+echo "$CHIFFRE1 est plus grand que $CHIFFRE2"
+else
+echo "$CHIFFRE1 est égal à $CHIFFRE2"
+fi
+
+Le mot elif correspond à la contraction de else et if. En effet, il est possible d'indiquer au script d'exécuter des commandes en fonction de la validité d'une ou de l'autre condition.
+
+#!/bin/bash
+CHIFFRE1='16'
+CHIFFRE2='17'
+if [ $CHIFFRE1 –lt $CHIFFRE2 ]
+then
+echo "$CHIFFRE1 est plus petit que $CHIFFRE2"
+elif [ $CHIFFRE1 –gt $CHIFFRE2 ]
+then
+echo "$CHIFFRE1 est plus grand que $CHIFFRE2"
+else
+echo "$CHIFFRE1 est égal à $CHIFFRE2"
+fi
