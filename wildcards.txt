@@ -1,0 +1,33 @@
+Il s'agit d'un caractère ou d'une chaîne de caractères qui
+vont être utilisés pour prendre un certain nombre de
+valeurs.
+On parle de Globbing wildcards lorsqu'ils vont matcher
+avec une liste de fichiers ou de répertoires.
+Ils peuvent être utilisés avec la plupart des commandes
+comme le ls ou le rm.
+
+Le caractère * : match avec tous les caractères (ou
+l'absence de caractères) qu'il n'y en ait qu'un seul ou
+plusieurs.
+Le caractère ? : match avec un seul caractère.
+
+Il est également possible d'exclure un certain nombre de
+caractères grâce au ! (par exemple [!oe])
+
+On peut créer une plage de caractère grâce aux classes
+en utilisant le caractère –
+[1-3]* : match avec tous les fichiers commençant par 1, 2 ou 3
+[a-c]* : match avec tous les fichiers commençant par a, b, ou c
+
+Il existe des classes de caractères prédéfinies.
+[[:alpha:]] : toutes les lettres de l'alphabet (minuscules et majuscules)
+[[:alnum:]] : toutes les lettres de l'alphabet (minuscules et majuscules) ainsi que tous les chiffres (0 à 9)
+[[:digit:]] : tous les chiffres de 0 à 9
+[[:upper:]] : toutes les lettres de l'alphabet en majuscule
+[[:lower:]] : toutes les lettres de l'alphabet en minuscule
+[[:space:]] : tous les caractères d'espacement (espace, tabulation, nouvelle ligne, etc…)
+
+Si on veut effectuer des recherches sur des fichiers qui
+comportent un caractère de type wildcard, il faut utiliser le
+caractère d'échappement \ avant le wildcard.
+\?
