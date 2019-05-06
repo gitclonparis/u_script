@@ -1,0 +1,72 @@
+
+Lorsque l'on souhaite faire des conditions complexes, à
+savoir plusieurs elif comme par exemple ci-dessous
+#!/bin/bash
+read –p "Quel est votre age ?" AGE
+if [ $AGE –lt 18 ]
+then
+echo "Vous êtes mineur"
+elif [ $AGE –gt 18 ]
+then
+echo "Vous êtes majeur"
+elif [ $AGE –eq 18 ]
+then
+echo "vous êtes majeur et vous avez 18 ans"
+fi
+
+case "$VARIABLE" in
+premier_cas)
+commande1
+commande2
+commanden
+;;
+deuxieme_cas)
+commande1
+commande2
+commanden
+;;
+troisieme_cas)
+commande1
+commande2
+commanden
+;;
+esac
+
+case "$1" in
+start)
+/etc/init.d/apache2 start
+;;
+stop)
+kill $(cat /var/run/apache2/apache2.pid)
+;;
+*)
+echo "Merci d'indiquer start ou stop"
+exit 1
+;;
+esac
+
+case "$1" in
+start|START)
+/etc/init.d/apache2 start
+;;
+stop|STOP)
+kill $(cat /var/run/apache2/apache2.pid)
+;;
+*)
+echo "Merci d'indiquer start ou stop"
+exit 1
+;;
+esac
+
+case "$1" in
+[sS][tT][aA][rR][tT])
+/etc/init.d/apache2 start
+;;
+[sS][tT][oO][pP] )
+kill $(cat /var/run/apache2/apache2.pid)
+;;
+*)
+echo "Merci d'indiquer start ou stop"
+exit 1
+;;
+esac
