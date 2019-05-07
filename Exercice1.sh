@@ -1,25 +1,32 @@
-#! /bin/bash
-#Fonction pour verifier la saisie d'argument
-NOMBRE_ARGUMENT=$#
-function verification_argument (){
-if [ $NOMBRE_ARGUMENT -eq 0 ]
-then
-echo "Vous n'avez pas renté d'arguments "
-return 2
-else
-return 0
-fi
+#!/bin/bash
+
+#Recuperation des noms des fichiers
+FICHIERS=$@
+NOMBRE_ARGUMENTS=$#
+
+#Verification que l'utilisateur a bien saisi des arguments
+function verif_arguments(){
+        if [ $NOMBRE_ARGUMENTS -eq 0 ]
+        then
+                echo "Attention, vous n'avez pas saisi les noms des fichiers"
+                exit 2
+        fi
 }
-verification_argument
-#Fonction pour tester la presence fichier passer en argument du script
-REPERTOIRE=$PWD
-FICHIER=`ls $REPERTOIRE`
-function existence_fichier () {
-if [ -f $FICHIER ]
-then
-echo "$FICHIER exists"
-else
-echo "$FICHIER not exists"
-fi
+#Verification que le fichier n'existe pas déjà
+function verif_fichier_existe(){
+        for FICHIER in $FICHIERS
+        do
+
+                ls $FICHIER 2> /dev/null
+
+                if [ $? -eq 0 ]
+                then
+                        echo "Le fichier $FICHIER existe"
+                else
+                        echo "Le fichier $FICHIER n'existe pas"
+                fi
+        done
 }
-existence_fichier
+
+verif_arguments
+verif_fichier_existe $FICHIERS
