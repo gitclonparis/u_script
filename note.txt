@@ -1,0 +1,88 @@
+
+11:17:05] root@lx-15-2:~$ n=5
+[11:17:39] root@lx-15-2:~$ m=3
+[11:17:43] root@lx-15-2:~$ let o=6/3
+[11:18:01] root@lx-15-2:~$ echo $o
+2
+[11:18:08] root@lx-15-2:~$ o=2
+[11:18:21] root@lx-15-2:~$ let o=$o+2
+[11:18:42] root@lx-15-2:~$ echo $o
+4
+[11:18:46] root@lx-15-2:~$ o=2
+[11:18:52] root@lx-15-2:~$ o=o+2
+[11:19:20] root@lx-15-2:~$ echo $o
+o+2
+
+expr $o + 5
+expr $o \> 10
+expr $o \> 1
+
+
+
+[15:22:57] root@lx-15-2:~/presentation$ hexdump test1.sh
+0000000 6365 6f68 2420 4150 4854 650a 6863 206f
+0000010 5024 4457 000a
+0000015
+[15:44:40] root@lx-15-2:~/presentation$ od -t x1 test1.sh
+0000000 65 63 68 6f 20 24 50 41 54 48 0a 65 63 68 6f 20
+0000020 24 50 57 44 0a
+0000025
+[15:45:40] root@lx-15-2:~/presentation$
+
+
+
+
+-d, --max-depth=NIVEAU pour limiter la profondeur de l’analyse
+-h, --human-readable
+afficher les tailles dans un format lisible
+root@debian:~# du -h -d 1 /var/log
+
+find . -type f -name "f*"
+Recherche tous les fichiers dans le répertoire courant qui commencent par f
+find / -type f -size +10M -mtime -10
+Recherche tous les fichiers de l’arborescence supérieurs à 10Mo modifiés il
+y a moins de 10 jours
+find / -perm 666
+Recherche tous les fichiers de l’arborescence accessibles à tout le monde
+
+
+ls $(cat option.txt)
+
+set -o # Pour connaître les options de bash
+
+A& Crée un nouveau processus en lançant la
+commande A (dépendant de la console),
+permettant d'entrer d'autres commandes dans
+la même console.
+
+(A&) Même chose que la commande ci-dessus, mais
+cette fois le processus créé est indépendant de
+la console.
+
+A&&B # ET logique (&&) Exécute B, si A réussit.B si A OK
+A||B # Exécute B uniquement si A échoue.B si A KO
+
+A`B` # paramètres dynamiques
+A$(B) # A utilise les résultats de l'exécution de B
+
+A |& B # Rediriger les deux sortis
+
+echo 'Hello!' | tr "[:lower:]" "[:upper:]"
+
+!/bin/bash
+# Variables globales et locales à l'intérieur d'une fonction.
+fonc ()
+{
+local var_local=23 # Déclaré en tant que variable locale.
+echo # Utilise la commande intégrée locale.
+echo "\"var_local\" dans la fonction = $var_local"
+var_global=999 # Non déclarée en local.Au contraire de C, une variable Bash Retour en global.
+
+echo "\"var_global\" dans la fonction = $var_global"
+}
+
+fonc
+echo
+echo "\"var_loc\" en dehors de la fonction = $var_loc" # "var_loc" en dehors de la fonction Non, $var_local n'est pas visible globalement.
+echo "\"var_global\" en dehors de la fonction = $var_global" # "var_global" en dehors de la fontion = 999 $var_global est visible globalement.
+echo
